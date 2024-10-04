@@ -1,0 +1,34 @@
+"""
+-------------------------------------------------------
+testing.txt
+CP213 Documentation Lab Testing
+-------------------------------------------------------
+Author:  Mike Bangar
+ID:      169073786
+Email:   bang3786@mylaurier.ca	
+Version: 2024-10-04
+-------------------------------------------------------
+"""
+
+New Student:
+Name:	Brown, David
+ID:	123456
+Birthdate:	1962-10-25
+----------------------------------------
+Test Getters
+ID: 123456
+Surname: Brown
+Forename: David
+Birthdate: 1962-10-25
+----------------------------------------
+----------------------------------------
+Test Setters
+Updated Student:
+Name:	Smith, John
+ID:	654321
+Birthdate:	1990-01-01
+----------------------------------------
+Test compareTo
+Comparing student1 to student2: 1
+Comparing student1 to student3: 3
+Comparing student2 to student3: 3
