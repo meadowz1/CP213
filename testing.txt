@@ -1,0 +1,285 @@
+SingleLink Data Structures Tests
+
+Tests are of the form:
+  Test Operation {expected value}: actual value
+  Contents: [contents from front to rear]
+
+================================================================================
+Testing SingleStack
+----------------------------------------
+SingleStack<Integer> source = new SingleStack<>();
+  isEmpty {true}: true
+----------------------------------------
+Push values: [32, 29, 15, 8, 31, 48, 18]
+  push: 32
+  push: 29
+  push: 15
+  push: 8
+  push: 31
+  push: 48
+  push: 18
+  isEmpty {false}: false
+  peek {18}: 18
+  Contents: [18, 48, 31, 8, 15, 29, 32]
+----------------------------------------
+source.splitAlternate(left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {32}: 32
+  Contents: [32, 15, 31, 18]
+right
+  isEmpty {false}: false
+  peek {29}: 29
+  Contents: [29, 8, 48]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {18}: 18
+  Contents: [18, 48, 31, 8, 15, 29, 32]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  Pop {18}: 18
+  Pop {48}: 48
+  Pop {31}: 31
+  Pop {8}: 8
+  Pop {15}: 15
+  Pop {29}: 29
+  Pop {32}: 32
+
+----------------------------------------
+Test Stack with strings
+test
+string
+123
+abc
+xyz
+================================================================================
+Testing SingleQueue
+----------------------------------------
+SingleQueue<Integer> source = new SingleQueue<>();
+  isEmpty {true}: true
+----------------------------------------
+Insert values: [41, 26, 11, 48, 0, 25, 6]
+  insert: 41
+  insert: 26
+  insert: 11
+  insert: 48
+  insert: 0
+  insert: 25
+  insert: 6
+  isEmpty {false}: false
+  peek {41}: 41
+  Contents: [41, 26, 11, 48, 0, 25, 6]
+----------------------------------------
+source.splitAlternate(left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {41}: 41
+  Contents: [41, 11, 0, 6]
+right
+  isEmpty {false}: false
+  peek {26}: 26
+  Contents: [26, 48, 25]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {41}: 41
+  Contents: [41, 26, 11, 48, 0, 25, 6]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  remove {41}: 41
+  remove {26}: 26
+  remove {11}: 11
+  remove {48}: 48
+  remove {0}: 0
+  remove {25}: 25
+  remove {6}: 6
+
+----------------------------------------
+Test Queue with strings
+xyz
+abc
+123
+string
+test
+================================================================================
+Testing SinglePriorityQueue
+----------------------------------------
+SinglePriorityQueue<Integer> source = new SinglePriorityQueue<>();
+  isEmpty {true}: true
+----------------------------------------
+Insert values: [36, 28, 30, 19, 1, 22, 1]
+  insert: 36
+  insert: 28
+  insert: 30
+  insert: 19
+  insert: 1
+  insert: 22
+  insert: 1
+  isEmpty {false}: false
+  peek {1}: 1
+  Contents: [1, 1, 19, 22, 28, 30, 36]
+----------------------------------------
+source.splitByKey(22, left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {1}: 1
+  Contents: [1, 1, 19]
+right
+  isEmpty {false}: false
+  peek {22}: 22
+  Contents: [22, 28, 30, 36]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {1}: 1
+  Contents: [1, 1, 19, 22, 28, 30, 36]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  remove {1}: 1
+  remove {1}: 1
+  remove {19}: 19
+  remove {22}: 22
+  remove {28}: 28
+  remove {30}: 30
+  remove {36}: 36
+
+----------------------------------------
+Test Priority Queue with strings
+123
+abc
+string
+test
+xyz
+================================================================================
+Testing SingleList
+----------------------------------------
+SingleList<Integer> source = new SingleList<>();
+  isEmpty {true}: true
+----------------------------------------
+Append values: [1, 6]
+  append: 1
+  append: 6
+  isEmpty {false}: false
+  peek {1}: 1
+  Contents: [1, 6]
+----------------------------------------
+prepend: 37
+  isEmpty {false}: false
+  peek {37}: 37
+  Contents: [37, 1, 6]
+----------------------------------------
+Insert values: [1, 6]
+  insert: (1, 14)
+  insert: (2, 9)
+  insert: (3, 31)
+  insert: (4, 43)
+  isEmpty {false}: false
+  peek {37}: 37
+  Contents: [37, 14, 9, 31, 43, 1, 6]
+----------------------------------------
+contains 999 {false}: false
+contains 31 {true}: true
+----------------------------------------
+find 999 {null}: 
+find 31 {31}: 31
+----------------------------------------
+get 3 {31}: 31
+----------------------------------------
+index 31 {3}: 3
+index 999 {-1}: -1
+----------------------------------------
+max {43}: 43
+min {1}: 1
+----------------------------------------
+Contents: [37, 14, 9, 31, 43, 1, 6]
+  count 999 {0}: 0
+Contents: [75, 75, 75, 75, 75, 75, 75]
+  count 75 {7}: 7
+----------------------------------------
+Contents: [75, 75, 75, 75, 75, 75, 75]
+  clean {[75]}: [75]
+----------------------------------------
+Contents: [75, 75, 75, 75, 75, 75, 75]
+  removeMany 999 {[75, 75, 75, 75, 75, 75, 75]}: [75, 75, 75, 75, 75, 75, 75]
+  removeMany 75 {[]}: []
+----------------------------------------
+Contents: [37, 14, 9, 31, 43, 1, 6]
+  removeFront {37}: 37
+----------------------------------------
+Contents: [14, 9, 31, 43, 1, 6]
+  remove 999 {null}: null
+  remove 6 {6}: 6
+Contents: [14, 9, 31, 43, 1]
+----------------------------------------
+Contents: [37, 14, 9, 31, 43, 1, 6]
+  reverse {[6, 1, 43, 31, 9, 14, 37]}: [6, 1, 43, 31, 9, 14, 37]
+----------------------------------------
+Contents: [37, 14, 9, 31, 43, 1, 6]
+  split {[37, 14, 9, 31], [43, 1, 6]}: [37, 14, 9, 31], [43, 1, 6]
+----------------------------------------
+Contents: [37, 14, 9, 31, 43, 1, 6]
+  splitAlternate {[37, 9, 43, 6], [14, 31, 1]}: [37, 9, 43, 6], [14, 31, 1]
+----------------------------------------
+Contents: [37, 9, 43, 6], [14, 31, 1]
+  combine {[37, 14, 9, 31, 43, 1, 6]}: [37, 14, 9, 31, 43, 1, 6]
+----------------------------------------
+Contents: [], []
+  identical {true}: true
+Contents: [37, 14, 9, 31, 43, 1, 6], [37, 14, 9, 31, 43, 1, 6]
+  identical {true}: true
+Contents: [37, 14, 9, 31, 43, 1, 6], [1, 6, 9, 14, 31, 37, 43]
+  identical {false}: false
+----------------------------------------
+Contents: [4, 0, 5, 6, 3, 1, 2], [2, 4, 6, 3, 0, 5, 1]
+  intersection {[4, 0, 5, 6, 3, 1, 2]}: [4, 0, 5, 6, 3, 1, 2]
+Contents: [4, 0, 5, 6, 3, 1, 2], [999]
+  intersection {[]}: []
+----------------------------------------
+Contents: [4, 0, 5], [6, 3, 1, 2]
+  union {[4, 0, 5, 6, 3, 1, 2]}: [4, 0, 5, 6, 3, 1, 2]
+----------------------------------------
+SingleList<Character> characters = new SingleList<>();
+  append: CP213
+  append: David
+  append: Laurier
+  append: covid
+  Contents: [CP213, David, Laurier, covid]
+
+----------------------------------------
+Test List with strings
+xyz
+abc
+123
+string
+test
